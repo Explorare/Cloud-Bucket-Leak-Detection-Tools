@@ -101,8 +101,7 @@ class Aliyun_Oss_Bucket_Check:
         """
         try:
             result = self.bucket.get_bucket_policy()
-            policy_json = json.loads(result.policy)
-            return policy_json
+            return json.loads(result.policy)
         except oss2.exceptions.AccessDenied:
             return False
         except oss2.exceptions.NoSuchBucketPolicy:
