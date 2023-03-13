@@ -13,12 +13,12 @@ from config.conf import NowTime
 
 
 def aliyun_save_file(target, BucketHijack, GetBucketObjectList, PutBucketObject, GetBucketAcl, PutBucketAcl, GetBucketPolicy):
-    headers = ['Bucket', 'BucketHijack', 'GetBucketObjectList', 'PutBucketObject', 'GetBucketAcl', 'PutBucketAcl', 'GetBucketPolicy']
     filepath = f'{os.getcwd()}/results/{NowTime}.csv'
     rows = [
         [f"{target}", BucketHijack, GetBucketObjectList, PutBucketObject, GetBucketAcl, PutBucketAcl, GetBucketPolicy]
     ]
     if not os.path.isfile(filepath):
+        headers = ['Bucket', 'BucketHijack', 'GetBucketObjectList', 'PutBucketObject', 'GetBucketAcl', 'PutBucketAcl', 'GetBucketPolicy']
         with open(filepath, 'a+', newline='') as f:
             f = csv.writer(f)
             f.writerow(headers)
